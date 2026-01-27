@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubicle Cat - Your Desktop Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐱 Cubicle Cat</h1>
+            <p class="tagline">Your virtual desk companion who does random things while you work</p>
+        </header>
+
+        <main>
+            <div class="cat-preview">
+                <div class="monitor-frame">
+                    <div class="monitor-screen">
+                        <div class="cat-container" id="cat-container">
+                            <div class="cat" id="cat">
+                                <div class="cat-ear left"></div>
+                                <div class="cat-ear right"></div>
+                                <div class="cat-face">
+                                    <div class="cat-eye left" id="eye-left">
+                                        <div class="pupil"></div>
+                                    </div>
+                                    <div class="cat-eye right" id="eye-right">
+                                        <div class="pupil"></div>
+                                    </div>
+                                    <div class="cat-nose"></div>
+                                    <div class="cat-mouth" id="cat-mouth"></div>
+                                    <div class="cat-whiskers left"></div>
+                                    <div class="cat-whiskers right"></div>
+                                </div>
+                                <div class="cat-body">
+                                    <div class="cat-paw left" id="paw-left"></div>
+                                    <div class="cat-paw right" id="paw-right"></div>
+                                </div>
+                                <div class="cat-tail" id="cat-tail"></div>
+                            </div>
+                            <div class="speech-bubble" id="speech-bubble" style="display:none;">
+                                <span id="speech-text"></span>
+                            </div>
+                            <div class="action-effect" id="action-effect" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="monitor-stand"></div>
+                </div>
+            </div>
+
+            <div class="status-display">
+                <span id="cat-status">😺 Watching you work...</span>
+            </div>
+
+            <div class="controls-section">
+                <h2>Cat Controls</h2>
+                <div class="control-grid">
+                    <button class="control-btn" onclick="catAction('meow')">🔊 Meow</button>
+                    <button class="control-btn" onclick="catAction('sleep')">😴 Sleep</button>
+                    <button class="control-btn" onclick="catAction('play')">🎾 Play</button>
+                    <button class="control-btn" onclick="catAction('knock')">📦 Knock Something</button>
+                    <button class="control-btn" onclick="catAction('judge')">👀 Judge You</button>
+                    <button class="control-btn" onclick="catAction('love')">❤️ Show Love</button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Settings</h2>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="auto-actions" checked>
+                        Random actions every few minutes
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>Action frequency:</label>
+                    <input type="range" id="frequency" min="10" max="120" value="30">
+                    <span id="frequency-value">30s</span>
+                </div>
+                <div class="setting-group">
+                    <label>Cat name:</label>
+                    <input type="text" id="cat-name" value="Whiskers" placeholder="Name your cat">
+                </div>
+                <div class="setting-group cat-colors">
+                    <label>Cat color:</label>
+                    <div class="color-options">
+                        <button class="color-btn active" data-color="orange" style="background:#ff9800">🧡</button>
+                        <button class="color-btn" data-color="gray" style="background:#78909c">🩶</button>
+                        <button class="color-btn" data-color="black" style="background:#37474f">🖤</button>
+                        <button class="color-btn" data-color="white" style="background:#eceff1">🤍</button>
+                        <button class="color-btn" data-color="calico" style="background:linear-gradient(45deg,#ff9800,#fff,#37474f)">🐱</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="install-section">
+                <h2>📥 Get the Bookmarklet</h2>
+                <p>Drag this button to your bookmarks bar to add the cat to any webpage!</p>
+                <a href="javascript:(function(){var s=document.createElement('script');s.src='https://claytondb.github.io/cubiclecat/bookmarklet.js';document.body.appendChild(s);})();" class="bookmarklet-btn" onclick="return false;">🐱 Add Cat</a>
+                <p class="hint">Drag ↑ this to your bookmarks bar, then click it on any page!</p>
+            </div>
+
+            <div class="stats-section">
+                <h2>📊 Cat Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-value" id="stat-meows">0</span>
+                        <span class="stat-label">Meows</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="stat-naps">0</span>
+                        <span class="stat-label">Naps</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="stat-knocked">0</span>
+                        <span class="stat-label">Things Knocked</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="stat-judged">0</span>
+                        <span class="stat-label">Judgments</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Cats make everything better 🐱</p>
+        </footer>
+    </div>
+
+    <script src="cat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
